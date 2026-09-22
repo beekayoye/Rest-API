@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Delivery — Order Food Online</title>
+  <title>Food Express — Order Food Online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@
     }
 
     .brand-logo {
-      font-size: 24px;
+      font-size: 26px;
     }
 
     .brand-title {
@@ -104,7 +104,7 @@
       align-items: center;
       justify-content: center;
       gap: 6px;
-      padding: 8px 16px;
+      padding: 8px 18px;
       background-color: var(--color-primary, #e76305);
       color: var(--color-on-primary, #ffffff);
       border-radius: 9999px;
@@ -137,7 +137,7 @@
       border: 1px solid var(--color-surface-variant, #e7ded4);
       padding: 8px 12px;
       border-radius: 9999px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
     }
@@ -191,7 +191,7 @@
     }
 
     .cuisine-chip {
-      padding: 8px 16px;
+      padding: 8px 18px;
       border-radius: 9999px;
       border: 1px solid var(--color-surface-variant, #e7ded4);
       background-color: var(--color-surface-container, #f3ece4);
@@ -616,8 +616,8 @@
   </footer>
 
   <script>
-    // Configuration: Points to live deployed API when set, or same domain when empty string
-    const API_BASE_URL = '';
+    // Configuration: Points to your live deployed API on Vercel
+    const API_BASE_URL = 'https://rest-api-pi-seven.vercel.app';
 
     let restaurantsData = [];
     let activeCuisine = '';

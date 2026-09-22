@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Food Delivery API — Developer Portal & Design System</title>
+  <title>Food Delivery — Order Food Online</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
@@ -16,11 +16,11 @@
     }
 
     body {
-      background-color: var(--color-surface-color);
-      color: var(--color-on-surface);
-      font-family: var(--typography-body-large-font-family);
-      font-size: var(--typography-body-large-font-size);
-      line-height: var(--typography-body-large-line-height);
+      background-color: var(--color-surface-color, #fdfbf7);
+      color: var(--color-on-surface, #1e1b18);
+      font-family: var(--typography-body-large-font-family, 'DM Sans', sans-serif);
+      font-size: var(--typography-body-large-font-size, 16px);
+      line-height: var(--typography-body-large-line-height, 1.5);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -29,278 +29,477 @@
 
     /* Top Navigation Header */
     header {
-      background-color: var(--color-surface-container);
-      border-bottom: 1px solid var(--color-surface-variant);
-      padding: var(--spacing-md) var(--spacing-xl);
+      background-color: var(--color-surface-container, #f3ece4);
+      border-bottom: 1px solid var(--color-surface-variant, #e7ded4);
+      padding: var(--spacing-sm, 12px) var(--spacing-xl, 32px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow-soft);
+      box-shadow: var(--shadow-soft, 0 2px 8px rgba(0,0,0,0.04));
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: var(--spacing-sm);
+      gap: var(--spacing-xs, 8px);
+      text-decoration: none;
+      cursor: pointer;
     }
 
-    .brand-badge {
-      background-color: var(--color-primary);
-      color: var(--color-on-primary);
-      padding: var(--spacing-xs) var(--spacing-sm);
-      border-radius: var(--spacing-xs);
-      font-size: var(--typography-label-small-font-size);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .brand-logo {
+      font-size: 24px;
     }
 
     .brand-title {
-      font-size: var(--typography-title-large-font-size);
-      font-weight: 700;
-      color: var(--color-on-surface);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--color-primary, #e76305);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-search {
+      flex: 1;
+      max-width: 450px;
+      margin: 0 var(--spacing-lg, 24px);
+      position: relative;
+    }
+
+    .nav-search input {
+      width: 100%;
+      padding: 10px 16px 10px 38px;
+      border-radius: 9999px;
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      background-color: var(--color-surface-container-high, #eae1d7);
+      color: var(--color-on-surface, #1e1b18);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .nav-search input:focus {
+      border-color: var(--color-primary, #e76305);
+    }
+
+    .nav-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      opacity: 0.6;
     }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: var(--spacing-md);
-    }
-
-    .theme-toggle-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-xs);
-      padding: var(--spacing-xs) var(--spacing-md);
-      background-color: var(--color-surface-container-high);
-      color: var(--color-on-surface);
-      border: 1px solid var(--color-surface-variant);
-      border-radius: 9999px;
-      font-size: var(--typography-label-medium-font-size);
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .theme-toggle-btn:hover {
-      background-color: var(--color-surface-container-highest);
-    }
-
-    /* Main Container */
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: var(--spacing-2xl) var(--spacing-lg);
-      width: 100%;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-2xl);
-    }
-
-    .hero-banner {
-      background: linear-gradient(135deg, var(--color-primary-container) 0%, var(--color-surface-container-high) 100%);
-      border: 1px solid var(--color-surface-variant);
-      border-radius: var(--spacing-md);
-      padding: var(--spacing-2xl);
-      box-shadow: var(--shadow-medium);
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-    }
-
-    .hero-title {
-      font-size: var(--typography-headline-large-font-size);
-      font-weight: 700;
-      color: var(--color-on-primary-container);
-      letter-spacing: var(--typography-headline-large-letter-spacing);
-    }
-
-    .hero-subtitle {
-      font-size: var(--typography-body-large-font-size);
-      color: var(--color-on-surface-variant);
-      max-width: 700px;
-    }
-
-    .badge-row {
-      display: flex;
-      gap: var(--spacing-sm);
-      margin-top: var(--spacing-sm);
-      flex-wrap: wrap;
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
-      background-color: var(--color-surface-container-highest);
-      border: 1px solid var(--color-surface-variant);
-      border-radius: 9999px;
-      font-size: var(--typography-label-small-font-size);
-      font-weight: 600;
-      color: var(--color-on-surface);
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: #22c55e;
-      display: inline-block;
-      box-shadow: 0 0 8px #22c55e;
-    }
-
-    /* Grid Layout for Sections */
-    .section-title {
-      font-size: var(--typography-headline-small-font-size);
-      font-weight: 700;
-      color: var(--color-on-surface);
-      margin-bottom: var(--spacing-md);
-      display: flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: var(--spacing-base);
-    }
-
-    .card {
-      background-color: var(--color-surface-container);
-      border: 1px solid var(--color-surface-variant);
-      border-radius: var(--spacing-sm);
-      padding: var(--spacing-base);
-      box-shadow: var(--shadow-soft);
-      display: flex;
-      flex-direction: column;
-      gap: var(--spacing-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-medium);
-    }
-
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .card-title {
-      font-size: var(--typography-title-medium-font-size);
-      font-weight: 600;
-      color: var(--color-on-surface);
-    }
-
-    .method-tag {
-      font-size: var(--typography-label-small-font-size);
-      font-weight: 700;
-      padding: 2px 6px;
-      border-radius: 4px;
-      background-color: var(--color-primary);
-      color: var(--color-on-primary);
-    }
-
-    .card-desc {
-      font-size: var(--typography-body-medium-font-size);
-      color: var(--color-on-surface-variant);
-      flex: 1;
+      gap: var(--spacing-sm, 12px);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: var(--spacing-xs) var(--spacing-base);
-      background-color: var(--color-primary);
-      color: var(--color-on-primary);
-      border-radius: var(--spacing-xs);
-      font-size: var(--typography-label-large-font-size);
-      font-weight: 600;
+      gap: 6px;
+      padding: 8px 16px;
+      background-color: var(--color-primary, #e76305);
+      color: var(--color-on-primary, #ffffff);
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 700;
       text-decoration: none;
       cursor: pointer;
       border: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.1s ease;
     }
 
     .btn:hover {
-      opacity: 0.9;
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      transform: translateY(0);
     }
 
     .btn-secondary {
-      background-color: var(--color-surface-container-high);
-      color: var(--color-on-surface);
-      border: 1px solid var(--color-surface-variant);
+      background-color: var(--color-surface-container-high, #eae1d7);
+      color: var(--color-on-surface, #1e1b18);
+      border: 1px solid var(--color-surface-variant, #e7ded4);
     }
 
-    /* Color Swatches Grid */
-    .color-swatch-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: var(--spacing-md);
-    }
-
-    .swatch-card {
-      border: 1px solid var(--color-surface-variant);
-      border-radius: var(--spacing-xs);
-      overflow: hidden;
-      background-color: var(--color-surface-container-low);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .swatch-preview {
-      height: 60px;
-      width: 100%;
-      border-bottom: 1px solid var(--color-surface-variant);
-    }
-
-    .swatch-info {
-      padding: var(--spacing-xs) var(--spacing-sm);
-    }
-
-    .swatch-name {
-      font-size: var(--typography-label-medium-font-size);
+    .theme-toggle-btn {
+      background-color: var(--color-surface-container-high, #eae1d7);
+      color: var(--color-on-surface, #1e1b18);
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      padding: 8px 12px;
+      border-radius: 9999px;
+      font-size: 13px;
       font-weight: 600;
-      color: var(--color-on-surface);
+      cursor: pointer;
     }
 
-    .swatch-var {
-      font-size: var(--typography-label-small-font-size);
-      color: var(--color-on-surface-variant);
-      font-family: monospace;
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-xl, 32px) var(--spacing-lg, 24px);
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xl, 32px);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, var(--color-primary-container, #fee1cd) 0%, var(--color-surface-container-high, #eae1d7) 100%);
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      border-radius: 16px;
+      padding: 36px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-md, 16px);
+      flex-wrap: wrap;
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--color-on-primary-container, #642b02);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero-text p {
+      font-size: 16px;
+      color: var(--color-on-surface-variant, #5c564f);
+      max-width: 520px;
+    }
+
+    /* Cuisine Filters Carousel */
+    .cuisine-filters {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+    }
+
+    .cuisine-chip {
+      padding: 8px 16px;
+      border-radius: 9999px;
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      background-color: var(--color-surface-container, #f3ece4);
+      color: var(--color-on-surface, #1e1b18);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cuisine-chip.active, .cuisine-chip:hover {
+      background-color: var(--color-primary, #e76305);
+      color: var(--color-on-primary, #ffffff);
+      border-color: var(--color-primary, #e76305);
+    }
+
+    /* Restaurant Grid */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-md, 16px);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--color-on-surface, #1e1b18);
+    }
+
+    .restaurant-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .restaurant-card {
+      background-color: var(--color-surface-container, #f3ece4);
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .restaurant-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .restaurant-img-wrapper {
+      height: 160px;
+      width: 100%;
+      background-color: var(--color-surface-container-high, #eae1d7);
+      position: relative;
+    }
+
+    .restaurant-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0,0,0,0.75);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .restaurant-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .restaurant-name {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-on-surface, #1e1b18);
+    }
+
+    .restaurant-meta {
+      display: flex;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-on-surface-variant, #5c564f);
+    }
+
+    .restaurant-desc {
+      font-size: 13px;
+      color: var(--color-on-surface-variant, #5c564f);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-top: 4px;
+    }
+
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      padding: 16px;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background-color: var(--color-surface-container, #f3ece4);
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--color-surface-variant, #e7ded4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: var(--color-on-surface, #1e1b18);
+    }
+
+    /* Menu Item Cards in Modal */
+    .menu-item-card {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      background-color: var(--color-surface-container-high, #eae1d7);
+      border-radius: 12px;
+      gap: 16px;
+    }
+
+    .menu-item-info {
+      flex: 1;
+    }
+
+    .menu-item-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .menu-item-desc {
+      font-size: 13px;
+      color: var(--color-on-surface-variant, #5c564f);
+      margin-bottom: 6px;
+    }
+
+    .menu-item-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-primary, #e76305);
+    }
+
+    /* Slide-out Cart Drawer */
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: var(--color-surface-container, #f3ece4);
+      border-left: 1px solid var(--color-surface-variant, #e7ded4);
+      box-shadow: -8px 0 32px rgba(0,0,0,0.15);
+      z-index: 1100;
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--color-surface-variant, #e7ded4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      background-color: var(--color-surface-container-high, #eae1d7);
+      border-radius: 10px;
+    }
+
+    .cart-qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid var(--color-surface-variant, #e7ded4);
+      background: var(--color-surface-container, #f3ece4);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .cart-footer {
+      padding: 20px;
+      border-top: 1px solid var(--color-surface-variant, #e7ded4);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background-color: var(--color-surface-container-high, #eae1d7);
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      font-weight: 800;
     }
 
     /* Footer */
     footer {
-      background-color: var(--color-surface-container-lowest);
-      border-top: 1px solid var(--color-surface-variant);
-      padding: var(--spacing-lg);
+      background-color: var(--color-surface-container, #f3ece4);
+      border-top: 1px solid var(--color-surface-variant, #e7ded4);
+      padding: var(--spacing-lg, 24px);
       text-align: center;
-      font-size: var(--typography-body-small-font-size);
-      color: var(--color-on-surface-variant);
+      font-size: 13px;
+      color: var(--color-on-surface-variant, #5c564f);
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Top Navigation Header -->
   <header>
-    <div class="brand">
-      <span class="brand-badge">REST API</span>
-      <span class="brand-title">Food Delivery API Portal</span>
+    <a class="brand" href="/" onclick="location.reload()">
+      <span class="brand-logo">🍔</span>
+      <span class="brand-title">Food Express</span>
+    </a>
+
+    <div class="nav-search">
+      <span class="nav-search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Search restaurants, cuisines, or cities..." oninput="handleSearch()">
     </div>
+
     <div class="nav-actions">
-      <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
+      <button class="btn btn-secondary theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
         <span id="themeIcon">🌙</span>
-        <span id="themeText">Dark Mode</span>
+      </button>
+      <button class="btn" id="cartButton" onclick="toggleCartDrawer()">
+        🛒 Cart (<span id="cartCount">0</span>)
       </button>
     </div>
   </header>
@@ -308,209 +507,383 @@
   <!-- Main Content -->
   <main>
     
-    <!-- Hero Section -->
+    <!-- Hero Banner -->
     <section class="hero-banner">
-      <h1 class="hero-title">Food Delivery API & Design System</h1>
-      <p class="hero-subtitle">
-        A versioned, relational REST API serving restaurants, menus, customers, and orders. Fully styled with semantic color roles and design tokens.
-      </p>
-      <div class="badge-row">
-        <span class="status-pill"><span class="status-dot"></span> Server: Running on Port 3000</span>
-        <span class="status-pill">⚡ Node.js 20+ (ESM)</span>
-        <span class="status-pill">🐘 PostgreSQL 16</span>
-        <span class="status-pill">🎨 W3C Design Tokens</span>
+      <div class="hero-text">
+        <h1>Delicious food,<br>delivered fast to your door</h1>
+        <p>Explore hundreds of local restaurants, top chefs, and diverse cuisines with instant live ordering.</p>
+      </div>
+      <div style="font-size: 64px;">🍕🍣🍜</div>
+    </section>
+
+    <!-- Cuisine Filter Carousel -->
+    <section>
+      <div class="cuisine-filters" id="cuisineFilters">
+        <button class="cuisine-chip active" onclick="filterCuisine('')">All Cuisines</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Italian')">🍝 Italian</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Japanese')">🍣 Japanese</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Mexican')">🌮 Mexican</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Indian')">🍛 Indian</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Chinese')">🥡 Chinese</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Thai')">🍲 Thai</button>
+        <button class="cuisine-chip" onclick="filterCuisine('American')">🍔 American</button>
+        <button class="cuisine-chip" onclick="filterCuisine('Mediterranean')">🥙 Mediterranean</button>
+        <button class="cuisine-chip" onclick="filterCuisine('French')">🥐 French</button>
       </div>
     </section>
 
-    <!-- API Endpoints Explorer & Interactive Client -->
+    <!-- Restaurant Listings Section -->
     <section>
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md); flex-wrap: wrap; gap: var(--spacing-sm);">
-        <h2 class="section-title" style="margin-bottom: 0;">🚀 Core API Endpoints (/api/v1)</h2>
-        <div style="display: flex; gap: var(--spacing-xs);">
-          <button id="viewGridBtn" class="btn" style="padding: 6px 12px; font-size: 13px;" onclick="switchApiView('cards')">Endpoint Links</button>
-          <button id="viewConsoleBtn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="switchApiView('console')">⚡ Interactive Live Tester</button>
-        </div>
+      <div class="section-header">
+        <h2 class="section-title">Featured Restaurants</h2>
+        <span id="restaurantCountBadge" style="font-size: 13px; color: var(--color-on-surface-variant);">Loading...</span>
       </div>
 
-      <!-- Static Endpoint Cards View -->
-      <div id="apiCardsGrid" class="card-grid">
-        <!-- Restaurants -->
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">Restaurants</span>
-            <span class="method-tag">GET</span>
-          </div>
-          <p class="card-desc">Paginated list with cuisine, city, and priceLevel filters.</p>
-          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
-            <a class="btn" href="/api/v1/restaurants" target="_blank" style="flex: 1;">Open JSON ↗</a>
-            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/restaurants?limit=5')">Test</button>
-          </div>
-        </div>
-
-        <!-- Menu Items -->
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">Menu Items</span>
-            <span class="method-tag">GET</span>
-          </div>
-          <p class="card-desc">Menu items list with category, restaurantId, and availability filters.</p>
-          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
-            <a class="btn" href="/api/v1/menu-items" target="_blank" style="flex: 1;">Open JSON ↗</a>
-            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/menu-items?limit=5')">Test</button>
-          </div>
-        </div>
-
-        <!-- Customers -->
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">Customers</span>
-            <span class="method-tag">GET</span>
-          </div>
-          <p class="card-desc">Customer accounts with unique emails and profiles.</p>
-          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
-            <a class="btn" href="/api/v1/customers" target="_blank" style="flex: 1;">Open JSON ↗</a>
-            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/customers?limit=5')">Test</button>
-          </div>
-        </div>
-
-        <!-- Orders -->
-        <div class="card">
-          <div class="card-header">
-            <span class="card-title">Orders</span>
-            <span class="method-tag">GET</span>
-          </div>
-          <p class="card-desc">Order tracking, status transitions, and item breakdowns.</p>
-          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
-            <a class="btn" href="/api/v1/orders" target="_blank" style="flex: 1;">Open JSON ↗</a>
-            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/orders?limit=5')">Test</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Live API Tester Panel -->
-      <div id="apiConsolePanel" class="card" style="margin-top: var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-md);">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-surface-variant); padding-bottom: var(--spacing-xs);">
-          <span style="font-weight: 700; font-size: var(--typography-title-medium-font-size);">⚡ Live API Request Console</span>
-          <span id="responseStatusBadge" class="status-pill" style="display: none;">Ready</span>
-        </div>
-
-        <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
-          <select id="reqMethod" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--color-surface-variant); background: var(--color-surface-container-high); color: var(--color-on-surface); font-weight: 600;">
-            <option value="GET">GET</option>
-            <option value="POST">POST</option>
-            <option value="PATCH">PATCH</option>
-            <option value="DELETE">DELETE</option>
-          </select>
-          <input type="text" id="reqPath" value="/api/v1/restaurants?limit=5" style="flex: 1; min-width: 260px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--color-surface-variant); background: var(--color-surface-container-high); color: var(--color-on-surface); font-family: monospace;" placeholder="/api/v1/restaurants">
-          <button class="btn" id="sendBtn" onclick="executeCustomRequest()">Send Request 🚀</button>
-        </div>
-
-        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
-          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/restaurants?limit=5')">List Restaurants</button>
-          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/menu-items?limit=5')">List Menu Items</button>
-          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/customers?limit=5')">List Customers</button>
-          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/orders?limit=5')">List Orders</button>
-          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/restaurants?limit=-1')">Test Bad Limit (400)</button>
-        </div>
-
-        <div>
-          <div style="font-size: var(--typography-label-medium-font-size); font-weight: 600; margin-bottom: 6px; color: var(--color-on-surface-variant);">Live Response (JSON Envelope):</div>
-          <pre id="responseJsonViewer" style="background: var(--color-surface-container-lowest); color: var(--color-on-surface); padding: var(--spacing-base); border-radius: 8px; border: 1px solid var(--color-surface-variant); max-height: 280px; overflow: auto; font-family: monospace; font-size: 13px; line-height: 1.4;">Click "Send Request" or select an endpoint above to view live API output.</pre>
-        </div>
+      <div class="restaurant-grid" id="restaurantGrid">
+        <!-- Rendered dynamically -->
       </div>
     </section>
 
   </main>
 
+  <!-- Restaurant Menu Modal -->
+  <div class="modal-overlay" id="menuModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <h2 id="modalRestaurantName" style="font-size: 20px; font-weight: 800;">Restaurant Menu</h2>
+          <p id="modalRestaurantMeta" style="font-size: 13px; color: var(--color-on-surface-variant);">Cuisine • City • ⭐ Rating</p>
+        </div>
+        <button class="close-btn" onclick="closeMenuModal()">✕</button>
+      </div>
+      <div class="modal-body" id="menuItemsContainer">
+        <!-- Menu Items loaded dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Shopping Cart Slide-out Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3 style="font-weight: 800; font-size: 18px;">Your Cart</h3>
+      <button class="close-btn" onclick="toggleCartDrawer()">✕</button>
+    </div>
+
+    <div class="cart-items-list" id="cartItemsList">
+      <p style="text-align: center; color: var(--color-on-surface-variant); margin-top: 40px;">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-footer" id="cartFooter" style="display: none;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <label style="font-size: 12px; font-weight: 700;">Delivery Address</label>
+        <input type="text" id="deliveryAddressInput" value="742 Evergreen Terrace" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--color-surface-variant); background: var(--color-surface-container); color: var(--color-on-surface);">
+      </div>
+
+      <div class="cart-total-row">
+        <span>Total:</span>
+        <span id="cartTotalDisplay">$0.00</span>
+      </div>
+
+      <button class="btn" id="placeOrderBtn" onclick="placeLiveOrder()" style="padding: 12px; width: 100%;">
+        Place Order 🚀
+      </button>
+    </div>
+  </div>
+
+  <!-- Order Success Confirmation Modal -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-content" style="max-width: 500px; text-align: center;">
+      <div class="modal-header">
+        <h2 style="font-size: 20px; font-weight: 800; color: #22c55e;">🎉 Order Confirmed!</h2>
+        <button class="close-btn" onclick="closeOrderModal()">✕</button>
+      </div>
+      <div class="modal-body" style="align-items: center;">
+        <p style="font-size: 15px; margin-bottom: 12px;">Your order has been sent to the restaurant and is being prepared.</p>
+        <div style="background: var(--color-surface-container-high); padding: 16px; border-radius: 12px; width: 100%; text-align: left; font-family: monospace; font-size: 13px;">
+          <div><strong>Order ID:</strong> <span id="confirmedOrderId"></span></div>
+          <div><strong>Status:</strong> <span style="color: #e76305; font-weight: bold;">pending</span></div>
+          <div><strong>Delivery To:</strong> <span id="confirmedDeliveryAddress"></span></div>
+          <div><strong>Total Paid:</strong> <span id="confirmedTotalAmount"></span></div>
+        </div>
+        <button class="btn" onclick="closeOrderModal()" style="margin-top: 16px; width: 100%;">Awesome!</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer>
-    <p>Food Delivery API • Designed with W3C Tokens & Node.js 20+ Express Stack</p>
+    <p>Food Express Consumer App • Powered by Food Delivery REST API & Design Tokens</p>
   </footer>
 
   <script>
-    // Set your deployed Backend API URL here when deploying consumer separately on Vercel
-    // Example: const API_BASE_URL = 'https://food-delivery-api.vercel.app';
-    // Leave as '' (empty string) when running locally or on the same domain.
+    // Configuration: Points to live deployed API when set, or same domain when empty string
     const API_BASE_URL = '';
 
+    let restaurantsData = [];
+    let activeCuisine = '';
+    let currentRestaurant = null;
+    let cart = []; // Array of { menuItemId, name, unitPriceCents, quantity, restaurantId }
+    let defaultCustomerId = 'cus_10bac9cf20192d978d5e3d84';
+
+    // Theme Switcher
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme') || 'light';
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
       html.setAttribute('data-theme', newTheme);
       document.getElementById('themeIcon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
-      document.getElementById('themeText').textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
     }
 
-    function switchApiView(view) {
-      const cards = document.getElementById('apiCardsGrid');
-      const consolePanel = document.getElementById('apiConsolePanel');
-      const gridBtn = document.getElementById('viewGridBtn');
-      const consoleBtn = document.getElementById('viewConsoleBtn');
+    // Helper to format cents into currency ($X.XX)
+    function formatMoney(cents) {
+      return '$' + (cents / 100).toFixed(2);
+    }
 
-      if (view === 'cards') {
-        cards.style.display = 'grid';
-        consolePanel.style.display = 'flex';
-        gridBtn.className = 'btn';
-        consoleBtn.className = 'btn btn-secondary';
-      } else {
-        cards.style.display = 'none';
-        consolePanel.style.display = 'flex';
-        gridBtn.className = 'btn btn-secondary';
-        consoleBtn.className = 'btn';
+    // Load Restaurants from API
+    async function loadRestaurants() {
+      try {
+        const url = `${API_BASE_URL}/api/v1/restaurants?limit=50${activeCuisine ? `&cuisine=${encodeURIComponent(activeCuisine)}` : ''}`;
+        const res = await fetch(url);
+        const json = await res.json();
+        restaurantsData = json.data || [];
+        renderRestaurants(restaurantsData);
+        document.getElementById('restaurantCountBadge').textContent = `${restaurantsData.length} restaurants open now`;
+
+        // Fetch a valid customer ID for order placement
+        fetch(`${API_BASE_URL}/api/v1/customers?limit=1`)
+          .then(r => r.json())
+          .then(c => {
+            if (c.data && c.data[0]) defaultCustomerId = c.data[0].id;
+          }).catch(() => {});
+      } catch (err) {
+        document.getElementById('restaurantGrid').innerHTML = `<p style="color: var(--color-error);">Failed to load restaurants from API.</p>`;
       }
     }
 
-    function setEndpoint(method, path) {
-      document.getElementById('reqMethod').value = method;
-      document.getElementById('reqPath').value = path;
-      executeCustomRequest();
+    // Render Restaurant Cards Grid
+    function renderRestaurants(list) {
+      const grid = document.getElementById('restaurantGrid');
+      if (list.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--color-on-surface-variant);">No restaurants found matching your criteria.</p>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(r => `
+        <div class="restaurant-card" onclick="openRestaurantMenu('${r.id}')">
+          <div class="restaurant-img-wrapper">
+            <img class="restaurant-img" src="${r.imageUrl || 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600'}" alt="${r.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600'">
+            <span class="rating-badge">⭐ ${r.rating ? Number(r.rating).toFixed(1) : '4.5'}</span>
+          </div>
+          <div class="restaurant-info">
+            <div class="restaurant-name">${r.name}</div>
+            <div class="restaurant-meta">
+              <span>${r.cuisine}</span> • <span>${'$'.repeat(r.priceLevel || 2)}</span> • <span>${r.city}</span>
+            </div>
+            <p class="restaurant-desc">${r.description || 'Authentic fresh meals prepared daily with quality ingredients.'}</p>
+          </div>
+        </div>
+      `).join('');
     }
 
-    function runLiveTest(method, path) {
-      setEndpoint(method, path);
+    // Filter by Cuisine
+    function filterCuisine(cuisine) {
+      activeCuisine = cuisine;
+      document.querySelectorAll('.cuisine-chip').forEach(chip => {
+        chip.classList.toggle('active', chip.textContent.includes(cuisine) || (cuisine === '' && chip.textContent.includes('All')));
+      });
+      loadRestaurants();
     }
 
-    async function executeCustomRequest() {
-      const method = document.getElementById('reqMethod').value;
-      const path = document.getElementById('reqPath').value;
-      const viewer = document.getElementById('responseJsonViewer');
-      const badge = document.getElementById('responseStatusBadge');
-      const sendBtn = document.getElementById('sendBtn');
+    // Real-time Search Handler
+    function handleSearch() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
+      const filtered = restaurantsData.filter(r => 
+        r.name.toLowerCase().includes(query) || 
+        r.cuisine.toLowerCase().includes(query) || 
+        r.city.toLowerCase().includes(query)
+      );
+      renderRestaurants(filtered);
+    }
 
-      // Build target URL (handles both relative and absolute paths)
-      const targetUrl = path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
+    // Open Restaurant Menu Modal
+    async function openRestaurantMenu(restaurantId) {
+      const restaurant = restaurantsData.find(r => r.id === restaurantId);
+      if (!restaurant) return;
+      currentRestaurant = restaurant;
 
-      sendBtn.disabled = true;
-      viewer.textContent = 'Sending request to ' + targetUrl + '...';
-      badge.style.display = 'inline-flex';
-      badge.textContent = 'Loading...';
-      badge.style.color = 'var(--color-on-surface)';
+      document.getElementById('modalRestaurantName').textContent = restaurant.name;
+      document.getElementById('modalRestaurantMeta').textContent = `${restaurant.cuisine} • ${restaurant.city} • ⭐ ${restaurant.rating}`;
+      
+      const container = document.getElementById('menuItemsContainer');
+      container.innerHTML = '<p>Loading delicious dishes...</p>';
+      document.getElementById('menuModal').classList.add('open');
 
-      const startTime = performance.now();
       try {
-        const response = await fetch(targetUrl, {
-          method: method,
+        const res = await fetch(`${API_BASE_URL}/api/v1/restaurants/${restaurantId}/menu`);
+        const json = await res.json();
+        const items = json.data || [];
+
+        if (items.length === 0) {
+          container.innerHTML = '<p>No menu items available for this restaurant.</p>';
+          return;
+        }
+
+        container.innerHTML = items.map(item => `
+          <div class="menu-item-card">
+            <div class="menu-item-info">
+              <div class="menu-item-name">${item.name}</div>
+              <div class="menu-item-desc">${item.description || 'Delicious dish made with fresh ingredients.'}</div>
+              <div class="menu-item-price">${formatMoney(item.priceCents)}</div>
+            </div>
+            <button class="btn" onclick="addToCart('${item.id}', '${item.name.replace(/'/g, "\\'")}', ${item.priceCents}, '${restaurant.id}')">
+              + Add
+            </button>
+          </div>
+        `).join('');
+      } catch (err) {
+        container.innerHTML = '<p style="color: var(--color-error);">Failed to load menu items.</p>';
+      }
+    }
+
+    function closeMenuModal() {
+      document.getElementById('menuModal').classList.remove('open');
+    }
+
+    // Cart Management
+    function addToCart(menuItemId, name, unitPriceCents, restaurantId) {
+      // If cart has items from another restaurant, reset cart for single-restaurant order constraint
+      if (cart.length > 0 && cart[0].restaurantId !== restaurantId) {
+        if (!confirm('Adding items from a new restaurant will clear your current cart. Proceed?')) {
+          return;
+        }
+        cart = [];
+      }
+
+      const existing = cart.find(i => i.menuItemId === menuItemId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ menuItemId, name, unitPriceCents, quantity: 1, restaurantId });
+      }
+
+      updateCartUI();
+    }
+
+    function updateCartQuantity(menuItemId, delta) {
+      const itemIndex = cart.findIndex(i => i.menuItemId === menuItemId);
+      if (itemIndex > -1) {
+        cart[itemIndex].quantity += delta;
+        if (cart[itemIndex].quantity <= 0) {
+          cart.splice(itemIndex, 1);
+        }
+      }
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const countSpan = document.getElementById('cartCount');
+      const list = document.getElementById('cartItemsList');
+      const footer = document.getElementById('cartFooter');
+      const totalDisplay = document.getElementById('cartTotalDisplay');
+
+      const totalItems = cart.reduce((sum, i) => sum + i.quantity, 0);
+      countSpan.textContent = totalItems;
+
+      if (cart.length === 0) {
+        list.innerHTML = '<p style="text-align: center; color: var(--color-on-surface-variant); margin-top: 40px;">Your cart is empty.</p>';
+        footer.style.display = 'none';
+        return;
+      }
+
+      let totalCents = 0;
+      list.innerHTML = cart.map(item => {
+        const itemTotal = item.unitPriceCents * item.quantity;
+        totalCents += itemTotal;
+        return `
+          <div class="cart-item">
+            <div>
+              <div style="font-weight: 700; font-size: 14px;">${item.name}</div>
+              <div style="font-size: 12px; color: var(--color-primary);">${formatMoney(item.unitPriceCents)} each</div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <button class="cart-qty-btn" onclick="updateCartQuantity('${item.menuItemId}', -1)">-</button>
+              <span style="font-weight: 700; font-size: 14px;">${item.quantity}</span>
+              <button class="cart-qty-btn" onclick="updateCartQuantity('${item.menuItemId}', 1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalDisplay.textContent = formatMoney(totalCents);
+      footer.style.display = 'flex';
+    }
+
+    function toggleCartDrawer() {
+      document.getElementById('cartDrawer').classList.toggle('open');
+    }
+
+    // Place Live Order to Backend API
+    async function placeLiveOrder() {
+      if (cart.length === 0) return;
+
+      const placeBtn = document.getElementById('placeOrderBtn');
+      placeBtn.disabled = true;
+      placeBtn.textContent = 'Submitting Order...';
+
+      const restaurantId = cart[0].restaurantId;
+      const deliveryAddress = document.getElementById('deliveryAddressInput').value || '123 Main Street';
+
+      const payload = {
+        restaurantId,
+        customerId: defaultCustomerId,
+        deliveryAddress,
+        items: cart.map(i => ({
+          menuItemId: i.menuItemId,
+          quantity: i.quantity
+        }))
+      };
+
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/v1/orders`, {
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json'
-          }
+          },
+          body: JSON.stringify(payload)
         });
-        const duration = Math.round(performance.now() - startTime);
-        const data = await response.json().catch(() => ({ raw: 'Non-JSON response' }));
 
-        badge.textContent = `${response.status} ${response.statusText} (${duration}ms)`;
-        badge.style.color = response.ok ? '#22c55e' : '#ef4444';
-        viewer.textContent = JSON.stringify(data, null, 2);
+        const json = await res.json();
+        if (res.ok && json.data) {
+          const order = json.data;
+          document.getElementById('confirmedOrderId').textContent = order.id;
+          document.getElementById('confirmedDeliveryAddress').textContent = order.deliveryAddress;
+          document.getElementById('confirmedTotalAmount').textContent = formatMoney(order.totalCents);
+
+          // Clear cart and close drawer
+          cart = [];
+          updateCartUI();
+          toggleCartDrawer();
+
+          // Show confirmation modal
+          document.getElementById('orderSuccessModal').classList.add('open');
+        } else {
+          alert('Failed to place order: ' + (json.error ? json.error.message : 'Unknown error'));
+        }
       } catch (err) {
-        badge.textContent = 'Network / Server Error';
-        badge.style.color = '#ef4444';
-        viewer.textContent = JSON.stringify({ error: err.message }, null, 2);
+        alert('Network error while connecting to API: ' + err.message);
       } finally {
-        sendBtn.disabled = false;
+        placeBtn.disabled = false;
+        placeBtn.textContent = 'Place Order 🚀';
       }
     }
+
+    function closeOrderModal() {
+      document.getElementById('orderSuccessModal').classList.remove('open');
+    }
+
+    // Initial Load
+    loadRestaurants();
   </script>
 </body>
 </html>

@@ -36,9 +36,21 @@ app.use('/api', rateLimiter);
 // API v1 Routes
 app.use('/api/v1', v1Router);
 
-// Serve consumer/index.html at root route /
+// Root Route / (JSON API Welcome & Health Status)
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve('consumer/index.html'));
+  res.json({
+    name: 'Food Delivery REST API',
+    version: '1.0.0',
+    status: 'online',
+    message: 'Welcome to the Food Delivery REST API v1',
+    documentation: 'https://github.com/beekayoye/Rest-API',
+    endpoints: {
+      restaurants: '/api/v1/restaurants',
+      menuItems: '/api/v1/menu-items',
+      customers: '/api/v1/customers',
+      orders: '/api/v1/orders'
+    }
+  });
 });
 
 // 404 handler for undefined API routes

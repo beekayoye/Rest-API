@@ -428,6 +428,11 @@
   </footer>
 
   <script>
+    // Set your deployed Backend API URL here when deploying consumer separately on Vercel
+    // Example: const API_BASE_URL = 'https://food-delivery-api.vercel.app';
+    // Leave as '' (empty string) when running locally or on the same domain.
+    const API_BASE_URL = '';
+
     function toggleTheme() {
       const html = document.documentElement;
       const currentTheme = html.getAttribute('data-theme') || 'light';
@@ -474,15 +479,18 @@
       const badge = document.getElementById('responseStatusBadge');
       const sendBtn = document.getElementById('sendBtn');
 
+      // Build target URL (handles both relative and absolute paths)
+      const targetUrl = path.startsWith('http') ? path : `${API_BASE_URL}${path}`;
+
       sendBtn.disabled = true;
-      viewer.textContent = 'Sending request to ' + path + '...';
+      viewer.textContent = 'Sending request to ' + targetUrl + '...';
       badge.style.display = 'inline-flex';
       badge.textContent = 'Loading...';
       badge.style.color = 'var(--color-on-surface)';
 
       const startTime = performance.now();
       try {
-        const response = await fetch(path, {
+        const response = await fetch(targetUrl, {
           method: method,
           headers: {
             'Content-Type': 'application/json',

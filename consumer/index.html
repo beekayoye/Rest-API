@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Delivery API — Developer Portal & Design System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/tokens.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-surface-color);
+      color: var(--color-on-surface);
+      font-family: var(--typography-body-large-font-family);
+      font-size: var(--typography-body-large-font-size);
+      line-height: var(--typography-body-large-line-height);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Top Navigation Header */
+    header {
+      background-color: var(--color-surface-container);
+      border-bottom: 1px solid var(--color-surface-variant);
+      padding: var(--spacing-md) var(--spacing-xl);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .brand-badge {
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      border-radius: var(--spacing-xs);
+      font-size: var(--typography-label-small-font-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-title {
+      font-size: var(--typography-title-large-font-size);
+      font-weight: 700;
+      color: var(--color-on-surface);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      padding: var(--spacing-xs) var(--spacing-md);
+      background-color: var(--color-surface-container-high);
+      color: var(--color-on-surface);
+      border: 1px solid var(--color-surface-variant);
+      border-radius: 9999px;
+      font-size: var(--typography-label-medium-font-size);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .theme-toggle-btn:hover {
+      background-color: var(--color-surface-container-highest);
+    }
+
+    /* Main Container */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-2xl) var(--spacing-lg);
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2xl);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, var(--color-primary-container) 0%, var(--color-surface-container-high) 100%);
+      border: 1px solid var(--color-surface-variant);
+      border-radius: var(--spacing-md);
+      padding: var(--spacing-2xl);
+      box-shadow: var(--shadow-medium);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+    }
+
+    .hero-title {
+      font-size: var(--typography-headline-large-font-size);
+      font-weight: 700;
+      color: var(--color-on-primary-container);
+      letter-spacing: var(--typography-headline-large-letter-spacing);
+    }
+
+    .hero-subtitle {
+      font-size: var(--typography-body-large-font-size);
+      color: var(--color-on-surface-variant);
+      max-width: 700px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background-color: var(--color-surface-container-highest);
+      border: 1px solid var(--color-surface-variant);
+      border-radius: 9999px;
+      font-size: var(--typography-label-small-font-size);
+      font-weight: 600;
+      color: var(--color-on-surface);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      display: inline-block;
+      box-shadow: 0 0 8px #22c55e;
+    }
+
+    /* Grid Layout for Sections */
+    .section-title {
+      font-size: var(--typography-headline-small-font-size);
+      font-weight: 700;
+      color: var(--color-on-surface);
+      margin-bottom: var(--spacing-md);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--spacing-base);
+    }
+
+    .card {
+      background-color: var(--color-surface-container);
+      border: 1px solid var(--color-surface-variant);
+      border-radius: var(--spacing-sm);
+      padding: var(--spacing-base);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-medium);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-title {
+      font-size: var(--typography-title-medium-font-size);
+      font-weight: 600;
+      color: var(--color-on-surface);
+    }
+
+    .method-tag {
+      font-size: var(--typography-label-small-font-size);
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+
+    .card-desc {
+      font-size: var(--typography-body-medium-font-size);
+      color: var(--color-on-surface-variant);
+      flex: 1;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-xs) var(--spacing-base);
+      background-color: var(--color-primary);
+      color: var(--color-on-primary);
+      border-radius: var(--spacing-xs);
+      font-size: var(--typography-label-large-font-size);
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      background-color: var(--color-surface-container-high);
+      color: var(--color-on-surface);
+      border: 1px solid var(--color-surface-variant);
+    }
+
+    /* Color Swatches Grid */
+    .color-swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: var(--spacing-md);
+    }
+
+    .swatch-card {
+      border: 1px solid var(--color-surface-variant);
+      border-radius: var(--spacing-xs);
+      overflow: hidden;
+      background-color: var(--color-surface-container-low);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .swatch-preview {
+      height: 60px;
+      width: 100%;
+      border-bottom: 1px solid var(--color-surface-variant);
+    }
+
+    .swatch-info {
+      padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .swatch-name {
+      font-size: var(--typography-label-medium-font-size);
+      font-weight: 600;
+      color: var(--color-on-surface);
+    }
+
+    .swatch-var {
+      font-size: var(--typography-label-small-font-size);
+      color: var(--color-on-surface-variant);
+      font-family: monospace;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--color-surface-container-lowest);
+      border-top: 1px solid var(--color-surface-variant);
+      padding: var(--spacing-lg);
+      text-align: center;
+      font-size: var(--typography-body-small-font-size);
+      color: var(--color-on-surface-variant);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <span class="brand-badge">REST API</span>
+      <span class="brand-title">Food Delivery API Portal</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()">
+        <span id="themeIcon">🌙</span>
+        <span id="themeText">Dark Mode</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero-banner">
+      <h1 class="hero-title">Food Delivery API & Design System</h1>
+      <p class="hero-subtitle">
+        A versioned, relational REST API serving restaurants, menus, customers, and orders. Fully styled with semantic color roles and design tokens.
+      </p>
+      <div class="badge-row">
+        <span class="status-pill"><span class="status-dot"></span> Server: Running on Port 3000</span>
+        <span class="status-pill">⚡ Node.js 20+ (ESM)</span>
+        <span class="status-pill">🐘 PostgreSQL 16</span>
+        <span class="status-pill">🎨 W3C Design Tokens</span>
+      </div>
+    </section>
+
+    <!-- API Endpoints Explorer & Interactive Client -->
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--spacing-md); flex-wrap: wrap; gap: var(--spacing-sm);">
+        <h2 class="section-title" style="margin-bottom: 0;">🚀 Core API Endpoints (/api/v1)</h2>
+        <div style="display: flex; gap: var(--spacing-xs);">
+          <button id="viewGridBtn" class="btn" style="padding: 6px 12px; font-size: 13px;" onclick="switchApiView('cards')">Endpoint Links</button>
+          <button id="viewConsoleBtn" class="btn btn-secondary" style="padding: 6px 12px; font-size: 13px;" onclick="switchApiView('console')">⚡ Interactive Live Tester</button>
+        </div>
+      </div>
+
+      <!-- Static Endpoint Cards View -->
+      <div id="apiCardsGrid" class="card-grid">
+        <!-- Restaurants -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Restaurants</span>
+            <span class="method-tag">GET</span>
+          </div>
+          <p class="card-desc">Paginated list with cuisine, city, and priceLevel filters.</p>
+          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
+            <a class="btn" href="/api/v1/restaurants" target="_blank" style="flex: 1;">Open JSON ↗</a>
+            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/restaurants?limit=5')">Test</button>
+          </div>
+        </div>
+
+        <!-- Menu Items -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Menu Items</span>
+            <span class="method-tag">GET</span>
+          </div>
+          <p class="card-desc">Menu items list with category, restaurantId, and availability filters.</p>
+          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
+            <a class="btn" href="/api/v1/menu-items" target="_blank" style="flex: 1;">Open JSON ↗</a>
+            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/menu-items?limit=5')">Test</button>
+          </div>
+        </div>
+
+        <!-- Customers -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Customers</span>
+            <span class="method-tag">GET</span>
+          </div>
+          <p class="card-desc">Customer accounts with unique emails and profiles.</p>
+          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
+            <a class="btn" href="/api/v1/customers" target="_blank" style="flex: 1;">Open JSON ↗</a>
+            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/customers?limit=5')">Test</button>
+          </div>
+        </div>
+
+        <!-- Orders -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">Orders</span>
+            <span class="method-tag">GET</span>
+          </div>
+          <p class="card-desc">Order tracking, status transitions, and item breakdowns.</p>
+          <div style="display: flex; gap: var(--spacing-xs); margin-top: var(--spacing-xs);">
+            <a class="btn" href="/api/v1/orders" target="_blank" style="flex: 1;">Open JSON ↗</a>
+            <button class="btn btn-secondary" onclick="runLiveTest('GET', '/api/v1/orders?limit=5')">Test</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live API Tester Panel -->
+      <div id="apiConsolePanel" class="card" style="margin-top: var(--spacing-md); display: flex; flex-direction: column; gap: var(--spacing-md);">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-surface-variant); padding-bottom: var(--spacing-xs);">
+          <span style="font-weight: 700; font-size: var(--typography-title-medium-font-size);">⚡ Live API Request Console</span>
+          <span id="responseStatusBadge" class="status-pill" style="display: none;">Ready</span>
+        </div>
+
+        <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+          <select id="reqMethod" style="padding: 8px 12px; border-radius: 6px; border: 1px solid var(--color-surface-variant); background: var(--color-surface-container-high); color: var(--color-on-surface); font-weight: 600;">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PATCH">PATCH</option>
+            <option value="DELETE">DELETE</option>
+          </select>
+          <input type="text" id="reqPath" value="/api/v1/restaurants?limit=5" style="flex: 1; min-width: 260px; padding: 8px 12px; border-radius: 6px; border: 1px solid var(--color-surface-variant); background: var(--color-surface-container-high); color: var(--color-on-surface); font-family: monospace;" placeholder="/api/v1/restaurants">
+          <button class="btn" id="sendBtn" onclick="executeCustomRequest()">Send Request 🚀</button>
+        </div>
+
+        <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap;">
+          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/restaurants?limit=5')">List Restaurants</button>
+          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/menu-items?limit=5')">List Menu Items</button>
+          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/customers?limit=5')">List Customers</button>
+          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/orders?limit=5')">List Orders</button>
+          <button class="status-pill" style="cursor: pointer;" onclick="setEndpoint('GET', '/api/v1/restaurants?limit=-1')">Test Bad Limit (400)</button>
+        </div>
+
+        <div>
+          <div style="font-size: var(--typography-label-medium-font-size); font-weight: 600; margin-bottom: 6px; color: var(--color-on-surface-variant);">Live Response (JSON Envelope):</div>
+          <pre id="responseJsonViewer" style="background: var(--color-surface-container-lowest); color: var(--color-on-surface); padding: var(--spacing-base); border-radius: 8px; border: 1px solid var(--color-surface-variant); max-height: 280px; overflow: auto; font-family: monospace; font-size: 13px; line-height: 1.4;">Click "Send Request" or select an endpoint above to view live API output.</pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Food Delivery API • Designed with W3C Tokens & Node.js 20+ Express Stack</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme') || 'light';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      document.getElementById('themeIcon').textContent = newTheme === 'dark' ? '☀️' : '🌙';
+      document.getElementById('themeText').textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+
+    function switchApiView(view) {
+      const cards = document.getElementById('apiCardsGrid');
+      const consolePanel = document.getElementById('apiConsolePanel');
+      const gridBtn = document.getElementById('viewGridBtn');
+      const consoleBtn = document.getElementById('viewConsoleBtn');
+
+      if (view === 'cards') {
+        cards.style.display = 'grid';
+        consolePanel.style.display = 'flex';
+        gridBtn.className = 'btn';
+        consoleBtn.className = 'btn btn-secondary';
+      } else {
+        cards.style.display = 'none';
+        consolePanel.style.display = 'flex';
+        gridBtn.className = 'btn btn-secondary';
+        consoleBtn.className = 'btn';
+      }
+    }
+
+    function setEndpoint(method, path) {
+      document.getElementById('reqMethod').value = method;
+      document.getElementById('reqPath').value = path;
+      executeCustomRequest();
+    }
+
+    function runLiveTest(method, path) {
+      setEndpoint(method, path);
+    }
+
+    async function executeCustomRequest() {
+      const method = document.getElementById('reqMethod').value;
+      const path = document.getElementById('reqPath').value;
+      const viewer = document.getElementById('responseJsonViewer');
+      const badge = document.getElementById('responseStatusBadge');
+      const sendBtn = document.getElementById('sendBtn');
+
+      sendBtn.disabled = true;
+      viewer.textContent = 'Sending request to ' + path + '...';
+      badge.style.display = 'inline-flex';
+      badge.textContent = 'Loading...';
+      badge.style.color = 'var(--color-on-surface)';
+
+      const startTime = performance.now();
+      try {
+        const response = await fetch(path, {
+          method: method,
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          }
+        });
+        const duration = Math.round(performance.now() - startTime);
+        const data = await response.json().catch(() => ({ raw: 'Non-JSON response' }));
+
+        badge.textContent = `${response.status} ${response.statusText} (${duration}ms)`;
+        badge.style.color = response.ok ? '#22c55e' : '#ef4444';
+        viewer.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        badge.textContent = 'Network / Server Error';
+        badge.style.color = '#ef4444';
+        viewer.textContent = JSON.stringify({ error: err.message }, null, 2);
+      } finally {
+        sendBtn.disabled = false;
+      }
+    }
+  </script>
+</body>
+</html>

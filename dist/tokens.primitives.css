@@ -1,0 +1,107 @@
+/* Design Tokens - Primitive Colors (Foundations) */
+:root {
+
+  /* ── Key Colors (Palette Seeds) ── */
+  --color-primitive-key-primary: #e76305; /* Seed anchor for primary color range */
+  --color-primitive-key-secondary: #b94f04; /* Seed anchor for secondary color range */
+  --color-primitive-key-tertiary: #fa7b21; /* Seed anchor for tertiary color range */
+  --color-primitive-key-neutral: #16181d; /* Seed anchor for neutral color range */
+  --color-primitive-key-neutral-variant: #38393a; /* Seed anchor for neutral variant color range */
+  --color-primitive-key-error: #f31c08; /* Seed anchor for error color range */
+
+  /* ── Primary Palette ── */
+  --color-primitive-primary-0: #000000;
+  --color-primitive-primary-10: #321501;
+  --color-primitive-primary-20: #642b02;
+  --color-primitive-primary-30: #964003;
+  --color-primitive-primary-40: #c85604;
+  --color-primitive-primary-50: #f96b06;
+  --color-primitive-primary-60: #fb8937;
+  --color-primitive-primary-70: #fca669;
+  --color-primitive-primary-80: #fdc49b;
+  --color-primitive-primary-90: #fee1cd;
+  --color-primitive-primary-95: #fff9f5;
+  --color-primitive-primary-98: #fff9f5;
+  --color-primitive-primary-99: #fffcfa;
+  --color-primitive-primary-100: #ffffff;
+
+  /* ── Secondary Palette ── */
+  --color-primitive-secondary-0: #000000;
+  --color-primitive-secondary-10: #3c1a01;
+  --color-primitive-secondary-20: #7d3603;
+  --color-primitive-secondary-30: #a54704;
+  --color-primitive-secondary-40: #d25a05;
+  --color-primitive-secondary-50: #fa791e;
+  --color-primitive-secondary-60: #fb8e41;
+  --color-primitive-secondary-70: #fcb582;
+  --color-primitive-secondary-80: #fdcaa5;
+  --color-primitive-secondary-90: #fee1cd;
+  --color-primitive-secondary-95: #fef0e6;
+  --color-primitive-secondary-98: #fff9f5;
+  --color-primitive-secondary-99: #fffcfa;
+  --color-primitive-secondary-100: #ffffff;
+
+  /* ── Tertiary Palette ── */
+  --color-primitive-tertiary-0: #000000;
+  --color-primitive-tertiary-10: #321501;
+  --color-primitive-tertiary-20: #7d3603;
+  --color-primitive-tertiary-30: #af4b04;
+  --color-primitive-tertiary-40: #e16005;
+  --color-primitive-tertiary-50: #fa7a1f;
+  --color-primitive-tertiary-60: #fb9750;
+  --color-primitive-tertiary-70: #fcb582;
+  --color-primitive-tertiary-80: #fdd3b4;
+  --color-primitive-tertiary-90: #fee1cd;
+  --color-primitive-tertiary-95: #fef0e6;
+  --color-primitive-tertiary-98: #fff9f5;
+  --color-primitive-tertiary-99: #fffcfa;
+  --color-primitive-tertiary-100: #ffffff;
+
+  /* ── Neutral Palette ── */
+  --color-primitive-neutral-0: #000000;
+  --color-primitive-neutral-10: #16181d;
+  --color-primitive-neutral-20: #2c303a;
+  --color-primitive-neutral-30: #424857;
+  --color-primitive-neutral-40: #586074;
+  --color-primitive-neutral-50: #6e7891;
+  --color-primitive-neutral-60: #8b93a7;
+  --color-primitive-neutral-70: #a8aebd;
+  --color-primitive-neutral-80: #c5c9d3;
+  --color-primitive-neutral-90: #e2e4e9;
+  --color-primitive-neutral-95: #f0f1f4;
+  --color-primitive-neutral-98: #f9fafb;
+  --color-primitive-neutral-99: #fcfcfd;
+  --color-primitive-neutral-100: #ffffff;
+
+  /* ── Neutral Variant Palette ── */
+  --color-primitive-neutral-variant-0: #000000;
+  --color-primitive-neutral-variant-10: #191a1a;
+  --color-primitive-neutral-variant-20: #323334;
+  --color-primitive-neutral-variant-30: #4b4d4e;
+  --color-primitive-neutral-variant-40: #646668;
+  --color-primitive-neutral-variant-50: #7d8082;
+  --color-primitive-neutral-variant-60: #97999b;
+  --color-primitive-neutral-variant-70: #b1b2b4;
+  --color-primitive-neutral-variant-80: #cbcccd;
+  --color-primitive-neutral-variant-90: #e5e5e6;
+  --color-primitive-neutral-variant-95: #f2f2f2;
+  --color-primitive-neutral-variant-98: #fafafa;
+  --color-primitive-neutral-variant-99: #fcfcfc;
+  --color-primitive-neutral-variant-100: #ffffff;
+
+  /* ── Error Palette ── */
+  --color-primitive-error-0: #000000;
+  --color-primitive-error-10: #310602;
+  --color-primitive-error-20: #630b03;
+  --color-primitive-error-30: #ad1406;
+  --color-primitive-error-40: #c51707;
+  --color-primitive-error-50: #f71c08;
+  --color-primitive-error-60: #f84a3a;
+  --color-primitive-error-70: #fb8e84;
+  --color-primitive-error-80: #fcada6;
+  --color-primitive-error-90: #fdd2ce;
+  --color-primitive-error-95: #fee8e6;
+  --color-primitive-error-98: #fff6f5;
+  --color-primitive-error-99: #fffafa;
+  --color-primitive-error-100: #ffffff;
+}

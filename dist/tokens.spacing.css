@@ -1,0 +1,18 @@
+/* Design Tokens - Spacing Scale */
+:root {
+  --spacing-none: 0px; /* 0px (no spacing) */
+  --spacing-no: var(--spacing-none); /* Alias for --spacing-none */
+  --spacing-xs: 4px; /* 4px (extra small spacing) */
+  --spacing-extra-small: var(--spacing-xs); /* Alias for --spacing-xs */
+  --spacing-sm: 8px; /* 8px (small spacing) */
+  --spacing-small: var(--spacing-sm); /* Alias for --spacing-sm */
+  --spacing-md: 12px; /* 12px (medium spacing) */
+  --spacing-medium: var(--spacing-md); /* Alias for --spacing-md */
+  --spacing-base: 16px; /* 16px (base spacing) */
+  --spacing-lg: 20px; /* 20px (large spacing) */
+  --spacing-large: var(--spacing-lg); /* Alias for --spacing-lg */
+  --spacing-xl: 24px; /* 24px (extra large spacing) */
+  --spacing-extra-large: var(--spacing-xl); /* Alias for --spacing-xl */
+  --spacing-2xl: 32px; /* 32px (very large spacing) */
+  --spacing-very-large: var(--spacing-2xl); /* Alias for --spacing-2xl */
+}

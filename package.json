@@ -1,0 +1,39 @@
+{
+  "name": "food-delivery-api",
+  "version": "1.0.0",
+  "description": "Public REST API for food delivery domain built with Node.js, Express, PostgreSQL, and Zod.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node db/migrate.js",
+    "migrate:psql": "psql \"$DATABASE_URL\" -f db/schema.sql",
+    "seed": "node seed.js",
+    "build:tokens": "node convert-tokens.js",
+    "test": "node test/test-core-modules.js && node test/test-schema.js && node test/test-validation-helpers.js && node test/test-api-integration.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.5.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "pg": "^8.13.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "pg-mem": "^3.0.5",
+    "supertest": "^7.0.0"
+  },
+  "keywords": [
+    "food-delivery-api",
+    "rest-api",
+    "express",
+    "postgresql",
+    "zod"
+  ],
+  "author": "",
+  "license": "MIT"
+}

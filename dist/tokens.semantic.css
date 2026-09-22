@@ -1,0 +1,62 @@
+/* Design Tokens - Semantic Color Roles */
+:root, [data-theme="light"] {
+  --color-primary: var(--color-primitive-key-primary); /* UI role for primary */
+  --color-on-primary: var(--color-primitive-primary-100); /* UI role for on primary */
+  --color-primary-container: var(--color-primitive-primary-90); /* UI role for primary container */
+  --color-on-primary-container: var(--color-primitive-primary-30); /* UI role for on primary container */
+  --color-secondary: var(--color-primitive-key-secondary); /* UI role for secondary */
+  --color-on-secondary: var(--color-primitive-secondary-100); /* UI role for on secondary */
+  --color-secondary-container: var(--color-primitive-secondary-90); /* UI role for secondary container */
+  --color-on-secondary-container: var(--color-primitive-secondary-30); /* UI role for on secondary container */
+  --color-tertiary: var(--color-primitive-key-tertiary); /* UI role for tertiary */
+  --color-on-tertiary: var(--color-primitive-tertiary-100); /* UI role for on tertiary */
+  --color-tertiary-container: var(--color-primitive-tertiary-90); /* UI role for tertiary container */
+  --color-on-tertiary-container: var(--color-primitive-tertiary-30); /* UI role for on tertiary container */
+  --color-error: var(--color-primitive-key-error); /* UI role for error */
+  --color-on-error: var(--color-primitive-error-100); /* UI role for on error */
+  --color-error-container: var(--color-primitive-error-90); /* UI role for error container */
+  --color-on-error-container: var(--color-primitive-error-30); /* UI role for on error container */
+  --color-surface-color: var(--color-primitive-neutral-98); /* UI role for surface color */
+  --color-on-surface: var(--color-primitive-neutral-10); /* UI role for on surface */
+  --color-surface-variant: var(--color-primitive-neutral-variant-90); /* UI role for surface variant */
+  --color-on-surface-variant: var(--color-primitive-neutral-variant-30); /* UI role for on surface variant */
+  --color-surface-container-highest: var(--color-primitive-neutral-90); /* UI role for surface container highest */
+  --color-surface-container-high: var(--color-primitive-neutral-90); /* UI role for surface container high */
+  --color-surface-container: var(--color-primitive-neutral-95); /* UI role for surface container */
+  --color-surface-container-low: var(--color-primitive-neutral-98); /* UI role for surface container low */
+  --color-surface-container-lowest: var(--color-primitive-neutral-100); /* UI role for surface container lowest */
+  --color-inverse-surface: var(--color-primitive-neutral-20); /* UI role for inverse surface */
+  --color-inverse-on-surface: var(--color-primitive-neutral-95); /* UI role for inverse on surface */
+  --color-surface-tint: var(--color-primitive-primary-40); /* UI role for surface tint */
+}
+
+[data-theme="dark"], .dark {
+  --color-primary: var(--color-primitive-primary-80); /* UI role for primary */
+  --color-on-primary: var(--color-primitive-primary-20); /* UI role for on primary */
+  --color-primary-container: var(--color-primitive-primary-30); /* UI role for primary container */
+  --color-on-primary-container: var(--color-primitive-primary-90); /* UI role for on primary container */
+  --color-secondary: var(--color-primitive-secondary-80); /* UI role for secondary */
+  --color-on-secondary: var(--color-primitive-secondary-20); /* UI role for on secondary */
+  --color-secondary-container: var(--color-primitive-secondary-30); /* UI role for secondary container */
+  --color-on-secondary-container: var(--color-primitive-secondary-90); /* UI role for on secondary container */
+  --color-tertiary: var(--color-primitive-tertiary-80); /* UI role for tertiary */
+  --color-on-tertiary: var(--color-primitive-tertiary-20); /* UI role for on tertiary */
+  --color-tertiary-container: var(--color-primitive-tertiary-30); /* UI role for tertiary container */
+  --color-on-tertiary-container: var(--color-primitive-tertiary-90); /* UI role for on tertiary container */
+  --color-error: var(--color-primitive-error-80); /* UI role for error */
+  --color-on-error: var(--color-primitive-error-20); /* UI role for on error */
+  --color-error-container: var(--color-primitive-error-30); /* UI role for error container */
+  --color-on-error-container: var(--color-primitive-error-90); /* UI role for on error container */
+  --color-surface-color: var(--color-primitive-neutral-10); /* UI role for surface color */
+  --color-on-surface: var(--color-primitive-neutral-90); /* UI role for on surface */
+  --color-surface-variant: var(--color-primitive-neutral-variant-30); /* UI role for surface variant */
+  --color-on-surface-variant: var(--color-primitive-neutral-variant-80); /* UI role for on surface variant */
+  --color-surface-container-highest: var(--color-primitive-neutral-30); /* UI role for surface container highest */
+  --color-surface-container-high: var(--color-primitive-neutral-20); /* UI role for surface container high */
+  --color-surface-container: var(--color-primitive-neutral-20); /* UI role for surface container */
+  --color-surface-container-low: var(--color-primitive-neutral-10); /* UI role for surface container low */
+  --color-surface-container-lowest: var(--color-primitive-neutral-10); /* UI role for surface container lowest */
+  --color-inverse-surface: var(--color-primitive-neutral-90); /* UI role for inverse surface */
+  --color-inverse-on-surface: var(--color-primitive-neutral-20); /* UI role for inverse on surface */
+  --color-surface-tint: var(--color-primitive-primary-80); /* UI role for surface tint */
+}

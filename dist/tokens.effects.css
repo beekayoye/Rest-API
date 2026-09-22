@@ -1,0 +1,6 @@
+/* Design Tokens - Elevation & Shadows */
+:root {
+  --shadow-hard: 4px 6px 8px 0px #00000052; /* hard shadow */
+  --shadow-medium: 2px 4px 6px 0px #00000047; /* medium shadow */
+  --shadow-soft: 2px 2px 20px 0px #0000001f; /* soft shadow */
+}
